@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arogia — Understand Your Health</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <span class="logo-text">Arogia</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">How it Works</a>
+      <a href="#">Features</a>
+      <a href="#">Resources</a>
+      <a href="#">About</a>
+      
+      <div class="nav-actions">
+   <a href="#" class="signin-btn">Sign In</a>
+   <button class="nav-cta">
+      Analyze Report →
+   </button>
+</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+<div class="hero">
+    
+    <div class="hero-content">
+      <div class="hero-badge">AI-Powered Health Intelligence</div>
+      <h1>Understand Your <span>Medical Reports</span> Instantly</h1>
+      <p>Medical reports are full of complex terms only doctors understand. Arogia explains them in plain English — with visuals, diet tips, and AI chat support.</p>
+        
+      <div class="trust-points">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          No Medical Knowledge Needed
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Private & Secure
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          AI-Powered Insights
+        </div>
+      </div>
+
+      <div class="hero-btns">
+        <button class="btn-primary" id="heroUploadBtn">📄 Upload Report</button>
+        <button class="btn-secondary" id="demoBtn">Watch Demo</button>
+      </div>
+          <div class="hero-real-trust">
+        <p class="real-trust-title">Security & Compatibility</p>
+        <div class="real-trust-grid">
+          <div class="real-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <div class="trust-text">
+              <strong>100% Private</strong>
+              <span>Data auto-deletes in 24h</span>
+            </div>
+          </div>
+          <div class="real-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <div class="trust-text">
+              <strong>All Formats</strong>
+              <span>Works with PDF, JPG, PNG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Visual -->
+<div style="width: 100%; max-width: 680px; margin: 0 auto;">
+      <div class="premium-widget horizontal-layout">
+
+        <div class="widget-header">
+          <span class="live-badge">
+            <span class="pulse-dot"></span> Live AI analysis
+          </span>
+          <span class="secure-badge">Secure</span>
+        </div>
+
+        <div id="stageUpload" class="stage centered-stage active">
+          <div id="floatingFile" class="floating-file">📄</div>
+          <div id="uploadDetails" class="upload-details">
+            <p class="file-name">blood_report.pdf</p>
+            <div class="progress-track">
+              <div id="uploadBar" class="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="stageScan" class="stage centered-stage">
+          <div class="scan-spinner"></div>
+          <p id="scanLabel" class="scan-title">Extracting values...</p>
+          <p class="scan-subtitle">AI reading your medical report</p>
+        </div>
+
+        <div id="stageResult" class="stage result-stage">
+          
+          <div class="score-section">
+            <div class="svg-ring-container">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <path id="scoreRing" class="circle-line" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              </svg>
+              <div class="score-value-text"><span id="scoreNum">0</span><small>/100</small></div>
+            </div>
+            <h3>Health Score</h3>
+            <p class="score-desc">Good, but needs attention</p>
+          </div>
+
+          <div class="data-section">
+            <div class="metrics-container">
+              <div class="metricRow good">
+                <span class="m-label"><span class="dot green"></span> Hemoglobin</span>
+                <span class="m-val">✓ Normal</span>
+              </div>
+              <div class="metricRow good">
+                <span class="m-label"><span class="dot green"></span> Blood sugar</span>
+                <span class="m-val">✓ Normal</span>
+              </div>
+              <div class="metricRow warning">
+                <span class="m-label"><span class="dot yellow"></span> Vitamin D</span>
+                <span class="m-val">⚠ Low</span>
+              </div>
+            </div>
+
+            <div class="trend-section">
+              <p class="trend-label">Vitamin D trend (last 4 tests)</p>
+              <svg viewBox="0 0 380 60" class="trend-svg">
+                <polyline id="trendLine" points="" />
+                <g id="trendDots"></g>
+              </svg>
+            </div>
+
+            <div id="insightBox" class="insight-box">
+              <p class="insight-title">✨ AI Insight</p>
+              <p class="insight-text">Add eggs, mushrooms and 15 mins of morning sunlight to raise your vitamin D naturally.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="arogiaLogo" class="arogia-logo show">
+          <div class="logo-icon-small">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <span>Arogia</span>
+        </div>
+
+      </div>
+    </div>
+
+</div>
+
+<br>
+
+
+
+
+<br>
+
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="stat-num">10<span>K+</span></div><div class="stat-label">Reports Analyzed</div></div>
+    <div class="stat"><div class="stat-num">98<span>%</span></div><div class="stat-label">Accuracy Rate</div></div>
+    <div class="stat"><div class="stat-num">2<span>min</span></div><div class="stat-label">Average Analysis Time</div></div>
+    <div class="stat"><div class="stat-num">15<span>+</span></div><div class="stat-label">Report Types Supported</div></div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how">
+    <div class="section-label">How It Works</div>
+    <div class="section-title">3 Simple Steps</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Step 01</div>
+        <div class="step-icon" style="background:#E8F4FF;">📸</div>
+        <h3>Upload Your Report</h3>
+        <p>Take a photo or upload a PDF of your medical report — blood test, MRI, X-Ray, anything.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 02</div>
+        <div class="step-icon" style="background:#E8FFF4;">🤖</div>
+        <h3>AI Analyses It</h3>
+        <p>Our AI checks every value, compares it with normal ranges, and identifies key findings instantly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 03</div>
+        <div class="step-icon" style="background:#FFF8E8;">📊</div>
+        <h3>Get a Simple Report</h3>
+        <p>Visual meters, plain English explanation, diet tips, and ask the AI any follow-up questions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="features-inner">
+      <div class="section-label">Features</div>
+      <div class="section-title">Everything You Need</div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <div>
+            <h4>Visual Health Meters</h4>
+            <p>Color-coded gauge for every value — green is normal, yellow is borderline, red needs attention. Understand at a glance.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🥗</div>
+          <div>
+            <h4>Personalized Diet Tips</h4>
+            <p>Based on your report — "Your B12 is low, eat these 3 things." Real, actionable advice tailored to you.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <div>
+            <h4>AI Chat Support</h4>
+            <p>Ask any question about your report. The AI answers in plain, simple language — no medical jargon.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📁</div>
+          <div>
+            <h4>Report History</h4>
+            <p>All your past reports in one place. Track your health over time and see trends at a glance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Start Understanding Your Health Today</h2>
+    <p>Get started for free — no credit card required</p>
+    <button class="btn-primary" style="margin: 0 auto; display: inline-flex;">📄 Upload Your First Report →</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="logo">
+      <div class="logo-icon" style="width:28px;height:28px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <span class="logo-text" style="font-size:16px;">Arogia</span>
+    </div>
+    <p>© 2025 Arogia. Built for better health understanding.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
